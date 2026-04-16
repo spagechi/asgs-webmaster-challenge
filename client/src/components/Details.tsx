@@ -1,4 +1,7 @@
-import Accordian from './Accordion';
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const featureDetails = [
     {
@@ -22,7 +25,7 @@ const featureDetails = [
 const Details = () => {
     return (
         <section className="mb-28">
-            <div className="grid gap-[115px_68px] grid-cols-2">
+            <div className="hidden md:grid gap-[115px_68px] grid-cols-2">
                 {featureDetails.map((feature, key) => (
                     <div>
                         <h3 className="mb-6 font-[Athiti] text-2xl">{feature.name}</h3>
@@ -32,7 +35,18 @@ const Details = () => {
             </div>
 
             <div className="md:hidden">
-                <Accordian />
+                {featureDetails.map((feature, key) => (
+                    <Accordion key={key}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <h3 className="font-[Athiti] text-2xl">
+                                {feature.name}
+                            </h3>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <p className="text-lg">{feature.description}</p>
+                        </AccordionDetails>
+                    </Accordion>
+                ))}
             </div>
         </section>
     );

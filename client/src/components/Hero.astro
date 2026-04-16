@@ -4,18 +4,18 @@ import PastEvents from "./PastEvents";
 import Details from "./Details";
 ---
 
-<main>
-    <Carousel />
-    <div class="pr-19 pl-19">
+<main class="flex flex-col items-center">
+    <Carousel client:load />
+    <div class="max-sm:pr-12 max-sm:pl-12 pr-19 pl-19 max-w-384">
         <section class="flex flex-col gap-6 text-center">
             <p class="mt-26 font-[Athiti] text-4xl">
                 Bear Gardens are daytime carnivals where students can chill with free food and play games to win some bear-y cool prizes with our mascot, ASCE Bear.
             </p>
-            <p class="pr-19 pl-19 mb-23 text-xl">
+            <p class="max-sm:pr-12 max-sm:pl-12 pr-19 pl-19 mb-23 text-xl">
                 As a play on “Biergarten”, Bear Garden serves free beer to students over 21 who present a valid ID, but the fun is open to all UCSD undergraduate students! Each Bear Garden also has a special theme with exclusive, themed stickers and merchandise. Come out for a paw-some time!
             </p>
         </section>
         <PastEvents />
-        <Details />
+        <Details client:load />
     </div>
 </main>

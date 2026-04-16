@@ -11,7 +11,7 @@ interface EventCardProps {
 
 const EventCard = ({ event } : EventCardProps) => {
     return (
-        <div className="flex flex-col max-w-82 border-2 rounded-2xl border-[#D9D9D9] overflow-hidden">
+        <div className="flex flex-col max-w-88 xl:max-w-78 2xl:max-w-88 border-2 rounded-2xl border-[#D9D9D9] overflow-hidden">
             <img src={event.img.src} alt={`'${event.title}' poster`} className="w-auto h-70 object-cover object-top" />
 
             <div className="flex flex-col gap-1 p-8 text-center">
