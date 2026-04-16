@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import type { Size } from '@/utils/general';
+import {useWindowSize} from '@/utils/general';
 import ArrowBackIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForwardIos";
 import ScoobyDooBanner from '@/assets/carousel-images/scooby-doo-banner.png';
@@ -9,18 +11,26 @@ const banners = [
     {
         img: ScoobyDooBanner,
         title: "ASCE-Bear, Where Are You?",
+        lowContrast: false,
     },
     {
         img: MinionsBanner,
         title: "The Rise of ASCE Bear",
+        lowContrast: false,
     },
     {
         img: MLPBanner,
         title: "My Little ASCE Bear",
+        lowContrast: true,
     },
 ];
 
 const Carousel = () => {
+    const size: Size = useWindowSize();
+
+    // size.width !== undefined determines whether the viewport has rendered yet
+    const lgDesktop = size.width !== undefined && size.width >= 1024;
+
     const [currIdx, setCurrIdx] = useState(0);
     const banner = banners[currIdx];
 
@@ -41,19 +51,20 @@ const Carousel = () => {
                     <button
                         key={index}
                         onClick={() => setCurrIdx(index)}
-                        className={`w-2 h-2 rounded-full ${
-                            index === currIdx ? "bg-black" : "bg-[#C4C4C4]"
+                        className={`${lgDesktop ? "w-3 h-3" : "w-2 h-2"} rounded-full ${
+                            index === currIdx ? "bg-black" : (
+                                banner.lowContrast ? "bg-[#36363659] hover:bg-[#222222a2]" : "bg-[#C4C4C4] hover:bg-[#818181]")
                         } hover:cursor-pointer`}
                     />
                 ))}
             </div>
 
             <button onClick={() => setCurrIdx((prevIdx) => ((((prevIdx - 1) % banners.length) + banners.length) % banners.length))}>
-                <ArrowBackIcon className="absolute top-1/2 left-5 text-[#e5dfe9] hover:cursor-pointer" />
+                <ArrowBackIcon fontSize={lgDesktop ? "large" : "medium"} className={`absolute top-1/2 left-5 text-[#e5dfe9] ${banner.lowContrast && "text-gray-900"} hover:cursor-pointer transition-transform duration-300 hover:scale-125`} />
             </button>
 
             <button onClick={() => setCurrIdx((prevIdx) => (prevIdx + 1) % banners.length)}>
-                <ArrowForwardIcon className="absolute top-1/2 right-5 text-[#e5dfe9] hover:cursor-pointer" />
+                <ArrowForwardIcon fontSize={lgDesktop ? "large" : "medium"} className={`absolute top-1/2 right-5 text-[#e5dfe9] ${banner.lowContrast && "text-gray-900"} hover:cursor-pointer transition-transform duration-300 hover:scale-125`} />
             </button>
         </div>
     );

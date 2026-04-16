@@ -30,7 +30,7 @@ const PastEvents = () => {
     return (
         <section className="mb-23 text-4xl">
             <h1 className="mb-13">Past Events</h1>
-            <div className="flex flex-col xl:flex-row justify-between items-center xl:items-stretch gap-10 xl:gap-0 p-[54px_48px] border-2 rounded-2xl border-[#979797]">
+            <div className="flex flex-col lg:flex-row max-[1144px]:flex-wrap justify-between max-[1144px]:justify-center items-center lg:items-stretch gap-14 p-[54px_48px] border-2 rounded-2xl border-[#979797]">
                 {events.map((event, key) => (
                     <EventCard key={key} event={event} />
                 ))}

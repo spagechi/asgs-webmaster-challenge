@@ -37,7 +37,7 @@ const Details = () => {
             <div className="md:hidden">
                 {featureDetails.map((feature, key) => (
                     <Accordion key={key}>
-                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon fontSize="large" />}>
                             <h3 className="font-[Athiti] text-2xl">
                                 {feature.name}
                             </h3>

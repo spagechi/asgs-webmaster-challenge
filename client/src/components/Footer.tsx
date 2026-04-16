@@ -11,7 +11,7 @@ const Footer = () => {
             <span>MADE WITH ♡ BY A.S. GRAPHIC STUDIO</span>
             <div className="grid sm:flex grid-cols-[auto_1fr] gap-x-10 gap-y-1 sm:gap-12 shrink-0 ml-8 max-sm:text-sm">
                 {navLinks.map((link, key) => (
-                    <a key={key} href={link.href}>
+                    <a key={key} href={link.href} className="hover:underline">
                         {link.label}
                     </a>
                 ))}

@@ -31,13 +31,13 @@ const Navbar = () => {
                 <span className="text-xl">LOREM IPSUM</span>
                 <nav className="hidden sm:flex gap-12 ml-8">
                     {navLinks.map((link, key) => (
-                        <a key={key} href={link.href}>
+                        <a key={key} href={link.href} className="hover:underline">
                             {link.label}
                         </a>
                     ))}
                 </nav>
                 <button onClick={toggleMenu} className="sm:hidden">
-                    <Menu />
+                    <Menu fontSize="large" />
                 </button>
             </header>
 
@@ -53,9 +53,9 @@ const Navbar = () => {
                 menuOpen ? "translate-x-0" : "translate-x-full"
                 }`}
             >
-                <div className="flex flex-col items-end gap-8 pt-14 pr-11 text-right">
+                <div className="flex flex-col items-end gap-8 pt-13 pr-11 text-right">
                     <button onClick={toggleMenu} className="text-black">
-                        <Close />
+                        <Close fontSize="large" />
                     </button>
 
                     {navLinks.map((link, key) => (
