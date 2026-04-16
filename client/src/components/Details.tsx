@@ -27,7 +27,7 @@ const Details = () => {
         <section className="mb-28">
             <div className="hidden md:grid gap-[115px_68px] grid-cols-2">
                 {featureDetails.map((feature, key) => (
-                    <div>
+                    <div key={key}>
                         <h3 className="mb-6 font-[Athiti] text-2xl">{feature.name}</h3>
                         <p className="text-lg">{feature.description}</p>
                     </div>
